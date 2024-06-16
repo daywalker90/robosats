@@ -359,7 +359,7 @@ class CLNNode:
         except Exception as e:
             # If it fails at finding the invoice: it has been expired for more than an hour (and could be paid or just expired).
             # In RoboSats DB we make a distinction between cancelled and returned
-            #  (cln-grpc-hodl has separate state for hodl-invoices, which it forgets after an invoice expired more than an hour ago)
+            #  (holdinvoice plugin has separate state for hodl-invoices, which it forgets after an invoice expired more than an hour ago)
             if "empty result for listdatastore_state" in str(e):
                 print(str(e))
                 request2 = node_pb2.ListinvoicesRequest(
