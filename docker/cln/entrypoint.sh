@@ -19,7 +19,7 @@ if [ "$EXPOSE_TCP" == "true" ]; then
 else
     # Always copy the cln-grpc-hodl plugin into the plugins directory on start up
     mkdir -p /root/.lightning/plugins
-    cp /tmp/cln-grpc-hold /root/.lightning/plugins/cln-grpc-hold
+    cp /tmp/holdinvoice /root/.lightning/plugins/holdinvoice
     if [ ! -f /root/.lightning/config ]; then
         cp /tmp/config /root/.lightning/config
     fi
