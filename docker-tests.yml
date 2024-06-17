@@ -88,7 +88,7 @@ services:
       - cln:/root/.lightning
       - ./docker/cln/plugins/holdinvoice:/root/.lightning/plugins/holdinvoice
       - bitcoin:/root/.bitcoin
-    command: --regtest --bitcoin-rpcuser=test --bitcoin-rpcpassword=test --dev-bitcoind-poll=1 --dev-fast-gossip --log-level=debug --bind-addr=127.0.0.1:9737 --max-concurrent-htlcs=483 --grpc-port=9999 --grpc-hold-port=9998 --important-plugin=/root/.lightning/plugins/holdinvoice --database-upgrade=true
+    command: --regtest --bitcoin-rpcuser=test --bitcoin-rpcpassword=test --developer --dev-bitcoind-poll=1 --dev-fast-gossip --log-level=debug --bind-addr=127.0.0.1:9737 --max-concurrent-htlcs=483 --grpc-port=9999 --grpc-hold-port=9998 --important-plugin=/root/.lightning/plugins/holdinvoice --database-upgrade=true
     depends_on:
       - bitcoind
     network_mode: service:bitcoind
