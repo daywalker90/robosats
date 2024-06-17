@@ -29,6 +29,8 @@ services:
       - "6379:6379"
     volumes:
       - bitcoin:/bitcoin/.bitcoin/
+      - ./tests/bitcoind/entrypoint.sh:/entrypoint.sh
+    entrypoint: ["/entrypoint.sh"]
     command:
       --txindex=1
       --printtoconsole
