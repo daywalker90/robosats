@@ -34,7 +34,7 @@ jobs:
         sed -i "1s/FROM python:.*/FROM python:${{ matrix.python-tag }}/" Dockerfile
         sed -i "s/^LNVENDOR=.*/LNVENDOR='${{ matrix.ln-vendor }}'/" .env-sample
 
-    - uses: satackey/action-docker-layer-caching@v0.0.11
+    - uses: jpribyl/action-docker-layer-caching@v0.1.1
       continue-on-error: true
       with:
         key: coordinator-docker-cache-${{ hashFiles('Dockerfile', 'requirements.txt', 'requirements_dev.txt') }}-${{ matrix.ln-vendor }}
@@ -42,7 +42,7 @@ jobs:
           coordinator-docker-cache-
 
     - name: 'Compose Regtest Orchestration'
-      uses: isbang/compose-action@v1.5.1
+      uses: isbang/compose-action@v2.0.0
       with:
         compose-file: "./docker-tests.yml"
         down-flags: "--volumes"
